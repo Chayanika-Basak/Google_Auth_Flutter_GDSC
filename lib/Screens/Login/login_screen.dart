@@ -140,11 +140,33 @@ class _LoginFormState extends State<LoginScreen> {
                   fontFamily: "Roxborough",
                 ),
                 SizedBox(height: 10),
-                AlreadyHaveAnAccountCheck(
-                  press: () {
-                    Navigator.pushNamed(context, 'signup');
+                Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          login ? "Don't have an account?" : "Already have an account?",
+            style: TextStyle(
+              color: Colors.grey[850],
+              fontFamily: 'Roxborough',
+              fontSize: 13,
+            )),
+        GestureDetector(
+          onTap: () {
+                    setState(() {
+                      login = !login;
+                    });
                   },
-                ),
+          child: Text(
+            login ? "Sign Up" : "Log In",
+              style: TextStyle(
+                color: Colors.grey[850],
+                fontFamily: 'Roxborough',
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+              )),
+        ),
+      ],
+    )
               ],
             ),
           ),
